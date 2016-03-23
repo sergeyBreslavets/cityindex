@@ -1,3 +1,11 @@
+.wrap_block--mid{
+	border-left: 1px solid #dadada;
+	border-right: 1px solid #dadada;
+	padding-left: 30px;
+	padding-right: 0px;
+
+}
+
 .hr_black{
 	border-top: 1px solid #000;
 	margin-top: 0px;
@@ -32,6 +40,34 @@
 .mt-6{
 	margin-top: 6px;
 }
+.mt-15{
+	margin-top: 15px;
+}
+.mt-42{
+	margin-top: 42px;
+}
 .pl-0{
 	padding-left: 0px;
+}
+.mb-20{
+	margin-bottom: 20px;
+}
+.mt-2{
+	margin-top: 2px;
+}
+.ml-18{
+	margin-left: 18px;
+} 
+.mt-13{
+	margin-top: 13px;
+}
+.mr--15{
+	margin-right: -15px;
+}
+.ml-15{
+	margin-left: 15px;
+}
+.plr-23{
+	padding-left: 23px;
+    padding-right: 23px;
 }
