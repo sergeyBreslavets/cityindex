@@ -1,0 +1,37 @@
+.hr_black{
+	border-top: 1px solid #000;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.mb-8{
+	    margin-bottom: 8px;
+}
+.mr-45{
+	    margin-right: 45px;
+}
+.sm-mb-19{
+	 @media (max-width: $screen-sm-min) { 
+                margin-bottom: -19px;
+               
+
+			 }
+     @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) { margin-bottom: 0px; } 
+}
+
+.icon-bar{
+	background: #000;
+
+}
+.navbar-toggle{
+	border: 1px solid #000;
+	border-radius: 0px;
+}
+.mb-0{
+	margin-bottom: 0px;
+}
+.mt-6{
+	margin-top: 6px;
+}
+.pl-0{
+	padding-left: 0px;
+}
