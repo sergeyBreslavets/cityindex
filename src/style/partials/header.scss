@@ -5,19 +5,29 @@
     .headermenu__navbar-header{
     	float: none;
     }
-	
+	.nav>li>a:focus, .nav>li>a:hover{
+		background-color: transparent;
+	}
 	&__collapse{
       padding-left: 0px;
 	}
 	&__collapse__menulist{
-		li{    
+		li{   
+		    background: transparent; 
+			&:focus{
+				background: transparent;
+			}
+              &:hover{
+              	background: transparent;
+              }
+
 			    margin-right: 41px;
 			a{
 				padding-left: 0px;
                 font-size: 16px;
                
                 color: #000;
-                &:hover{
+                &:hover {
 				background: transparent;
 				color: #009fe3;
 				 

@@ -47,8 +47,20 @@
 .mt-15{
 	margin-top: 15px;
 }
+.mt-30{
+	margin-top: 30px;
+}
+.mt-38{
+	margin-top: 38px;
+}
 .mt-42{
 	margin-top: 42px;
+}
+.mt-90{
+	margin-top: 90px;
+	 @media (max-width: $screen-sm-min) { 
+                margin-top: 10px; 
+			 }
 }
 .pl-0{
 	padding-left: 0px;
@@ -72,6 +84,8 @@
 }
 .ml-18{
 	margin-left: 18px;
+	 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) { margin-left: 0px;} 
+	 @media (min-width: $screen-md-min) and (max-width: $screen-md-max) { margin-left: 0px;} 
 } 
 .mt-13{
 	margin-top: 13px;
