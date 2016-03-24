@@ -1,3 +1,7 @@
+.wrap_block{
+	overflow: hidden;
+}
+
 .wrap_block--mid{
 	border-left: 1px solid #dadada;
 	border-right: 1px solid #dadada;
@@ -48,7 +52,15 @@
 }
 .pl-0{
 	padding-left: 0px;
+	@media (max-width: $screen-sm-min) { 
+                padding-left:15px  ;  
+			 }
+		
 }
+.pl-xs-0{
+	padding-left: 0px;
+}
+
 .pl-15{
 	padding-left: 15px;
 }
@@ -79,4 +91,15 @@
 }
 .mb--15{
 	margin-bottom: -15px;
+}
+.ml--30-xs{
+	@media (max-width: $screen-sm-min) { 
+             margin-left: -30px;
+			 }
+	
+}
+.ml-15-xs{
+	@media (max-width: $screen-sm-min) { 
+             margin-left: 15px;
+			 }
 }

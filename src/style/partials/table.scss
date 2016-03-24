@@ -21,6 +21,7 @@
             font-size: 13px;
                 padding-bottom: 12px;
                     padding-left: 14px;
+
        }
        tr{
        	  &:hover{
@@ -28,14 +29,7 @@
        	  	cursor: pointer;
        	  }
        }
-
-
      }
-    
-
-
-
-
 }
 
 .table_tringl{
@@ -46,4 +40,7 @@
 	background-size: cover;
 	     margin-left: 33px;
     margin-right: 9px; 
+    @media (max-width: $screen-sm-min) { 
+            margin-left:10px;
+			 }
 }
