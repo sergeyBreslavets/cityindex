@@ -71,5 +71,18 @@
 }
 
 .infoblock--interactiv{
-	
+	border-bottom: 1px solid #dadada;
+	padding-bottom: 20px;
+	.infoblock--interactiv__title{
+           color: #000;
+           font-size: 20px;
+           margin-top: 22px;
+           min-height: 50px;
+	}
+	.infoblock--interactiv__date{
+        color: #878787;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.1px;
+	}
 }
