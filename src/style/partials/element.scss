@@ -6,7 +6,7 @@
 	border-left: 1px solid #dadada;
 	border-right: 1px solid #dadada;
 	padding-left: 30px;
-	padding-right: 0px;
+    padding-right: 15px;
 
 }
 
@@ -18,8 +18,8 @@
 .mb-8{
 	    margin-bottom: 8px;
 }
-.mr-45{
-	    margin-right: 45px;
+.mr-16{
+	    margin-right: 16px;
 }
 .sm-mb-19{
 	 @media (max-width: $screen-sm-min) { 
@@ -63,7 +63,7 @@
 			 }
 }
 .pl-0{
-	padding-left: 0px;
+	// padding-left: 0px;
 	@media (max-width: $screen-sm-min) { 
                 padding-left:15px  ;  
 			 }
@@ -96,6 +96,9 @@
 .ml-15{
 	margin-left: 15px;
 }
+.mr-15{
+	margin-right: 15px;
+}
 .plr-23{
 	padding-left: 23px;
     padding-right: 23px;
@@ -115,5 +118,13 @@
 .ml-15-xs{
 	@media (max-width: $screen-sm-min) { 
              margin-left: 15px;
+			 }
+}
+.ml-0{
+	margin-left: 0px;
+}
+.ml--0-xs{
+	@media (max-width: $screen-sm-min) { 
+             margin-left: 0px !important;
 			 }
 }

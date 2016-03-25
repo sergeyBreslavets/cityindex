@@ -26,7 +26,7 @@
    .footer_block__input{
    	display: inline-block;
    	border: 1px solid #fff;
-   	margin-left: 18px;
+   	margin-left: 33px;
 
    }
 .footer_block__input__form-control{
@@ -60,6 +60,7 @@
 
 }
 .footer_block__social{
+  margin-left: 110px;
 	.footer_block__social__list{
            list-style: none;
              @media (max-width: $screen-sm-min) { 
@@ -73,9 +74,9 @@
 		border-radius: 50%;
     	padding: 1px 8px 3px 3px;
     	text-align: center;
-    	    margin-right: 12px;
+    	    margin-right: 5px;
     	     @media (max-width: $screen-sm-min) { 
-                 margin-right: 10px;
+                 margin-right: 3px;
 			 }
         a{  
         	display: inline-block;
