@@ -1,5 +1,6 @@
 'use strict';
 
+
 var gulp          = require('gulp'),
     watch         = require('gulp-watch'),
     prefixer      = require('gulp-autoprefixer'),
@@ -17,7 +18,10 @@ var gulp          = require('gulp'),
     stripDebug    = require('gulp-strip-debug'),
     spritesmith   = require('gulp.spritesmith'),
     reload        = browserSync.reload;
-
+var pkg = require('./package.json');
+var version     = pkg.version;
+var name        = pkg.name;
+var browsers    = pkg.browsers;
 
 
 var path = {
@@ -29,14 +33,26 @@ var path = {
         fonts:   'www/assets/fonts/',
         fontBs:  'www/assets/fonts/bootstrap/',
         sprite:  'www/assets/images/sprite/',
-        spriteScss: 'src/style/' 
+        spriteScss: 'src/style/'
     },
+    prodaction: { //template
+        html:    'www/',
+        js:      '../catalog/view/theme/' + name + '/assets/js/',
+        css:     '../catalog/view/theme/' + name + '/assets/css/',
+        images:  '../catalog/view/theme/' + name + '/assets/images/',
+        fonts:   '../catalog/view/theme/' + name + '/assets/fonts/',
+        fontBs:  '../catalog/view/theme/' + name + '/assets/fonts/bootstrap/',
+        sprite:  '../catalog/view/theme/' + name + '/assets/images/sprite/',
+        spriteScss: 'src/style/'
+    }
+
+    ,
     src: { //Пути откуда брать исходники
         html:    'src/html/*.html', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
-        js:  [     
+        js:  [
                  'bower_components/modernizr/modernizr.js',
                  'bower_components/jquery/dist/jquery.js',
-                
+
                  'bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js',
                  'bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js',
                  'bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js',
@@ -51,7 +67,7 @@ var path = {
                  'bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js',
                   'bower_components/jquery-ui/jquery-ui.js',
                   'src/js/partials/jquery.ui.datepicker-ru.js',
-        
+
 
                  'src/js/main.js'
               ]   ,//В стилях и скриптах нам понадобятся только main файлы
@@ -83,18 +99,18 @@ var config = {
     logPrefix: "Frontend_Devil"
 };
 
-// tasks 
+// tasks
 
 gulp.task('sprites', function() {
-   var spriteData = 
+   var spriteData =
         gulp.src(path.src.sprite) // путь, откуда берем картинки для спрайта
             .pipe(spritesmith({
                 imgName: 'sprite.png',
                 cssName: 'sprite.scss',
             }))
 
-    spriteData.css.pipe(gulp.dest(path.build.spriteScss))
-    spriteData.img.pipe(gulp.dest(path.build.sprite))
+    spriteData.css.pipe(gulp.dest(path.prodaction.spriteScss))
+    spriteData.img.pipe(gulp.dest(path.prodaction.sprite))
     .pipe(notify({
             title: 'sprite',
             message: 'sprite Complide'
@@ -108,14 +124,14 @@ gulp.task('sprites', function() {
 gulp.task('html:build', function () {
     gulp.src(path.src.html) //Выберем файлы по нужному пути
         // .pipe(rigger()) //Прогоним через rigger
-        .pipe(gulp.dest(path.build.html)) //Выплюнем их в папку build  
+        .pipe(gulp.dest(path.prodaction.html)) //Выплюнем их в папку build
         .pipe(notify({
             title: 'html',
             message: 'html build Complide'
 
         }))
         .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
-      
+
 });
 
 gulp.task('js:build', function () {
@@ -123,7 +139,7 @@ gulp.task('js:build', function () {
         .pipe(concat('main.js'))
         .pipe(stripDebug())
         .pipe(uglify())
-        .pipe(gulp.dest(path.build.js)) //Выплюнем готовый файл в build
+        .pipe(gulp.dest(path.prodaction.js)) //Выплюнем готовый файл в build
         .pipe(notify({
             title: 'js',
             message: 'js build Complide'
@@ -139,7 +155,7 @@ gulp.task('style:build', function () {
         .pipe(prefixer()) //Добавим вендорные префиксы
         .pipe(cssmin()) //Сожмем
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(path.build.css)) //И в build
+        .pipe(gulp.dest(path.prodaction.css)) //И в build
         .pipe(notify({
             title: 'sass',
             message: 'sass build Complide'
@@ -156,7 +172,7 @@ gulp.task('image:build', function () {
             use: [pngquant()],
             interlaced: true
         }))
-        .pipe(gulp.dest(path.build.images)) //И бросим в build
+        .pipe(gulp.dest(path.prodaction.images)) //И бросим в build
          .pipe(notify({
             title: 'images',
             message: 'images compress Complide'
@@ -167,7 +183,7 @@ gulp.task('image:build', function () {
 
 gulp.task('fonts:build', function() {
     gulp.src(path.src.fonts)
-        .pipe(gulp.dest(path.build.fonts))
+        .pipe(gulp.dest(path.prodaction.fonts))
          .pipe(notify({
             title: 'fonts',
             message: 'fonts copy Complide'
@@ -177,7 +193,7 @@ gulp.task('fonts:build', function() {
 
 gulp.task('fontsbs:build', function() {
     gulp.src([path.src.fontsBs, path.src.fontsAwesome])
-        .pipe(gulp.dest(path.build.fontBs))
+        .pipe(gulp.dest(path.prodaction.fontBs))
          .pipe(notify({
             title: 'fonts bs',
             message: 'fonts bs copy Complide'
@@ -185,7 +201,7 @@ gulp.task('fontsbs:build', function() {
         }));
 });
 
-     
+
 
 
 
@@ -230,7 +246,7 @@ gulp.task('clean', function (cb) {
 });
 
 gulp.task('default', [
-          'build', 
-          // 'webserver',  --нужно сконфигурировать 
+          'build',
+          // 'webserver',  --нужно сконфигурировать
           'watch'
 ]);
